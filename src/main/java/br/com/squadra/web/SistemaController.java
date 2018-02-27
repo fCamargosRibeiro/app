@@ -21,7 +21,6 @@ import br.com.squadra.enums.EnumStatus;
 import br.com.squadra.service.SistemaService;
 
 @RestController
-@RequestMapping("/manterSistema")
 public class SistemaController {
 
 	@Autowired

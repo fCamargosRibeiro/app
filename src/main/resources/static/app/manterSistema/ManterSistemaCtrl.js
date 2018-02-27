@@ -1,14 +1,15 @@
 angular.module("app", []).controller('ManterSistemaCtrl', function ($scope, $http) {
 	$scope.msgErro = '';
 	$scope.sistemas = [];
-	$scope.pesquisar = function() {
+	$scope.cadastrar = function() {
 		$http({
-			method : 'GET',
-			url : '/sistemasFiltro',
-			params : {
+			method : 'POST',
+			url : '/sistemas',
+			data: {
 				"descricao" : $scope.descricao,
 				"sigla" : $scope.sigla,
-				"emailAtendimentoSistema" : $scope.emailAtendimentoSistema
+				"emailAtendimentoSistema" : $scope.emailAtendimentoSistema,
+				"url" : $scope.url
 			},
 			headers : {
 				"Content-Type" : "application/json"
@@ -20,10 +21,7 @@ angular.module("app", []).controller('ManterSistemaCtrl', function ($scope, $htt
 		});
 	};
 
-	$scope.limpar = function() {
-		$scope.descricao = '';
-		$scope.sigla = '';
-		$scope.emailAtendimentoSistema = '';
-		$scope.sistemas = [];
+	$scope.voltar = function() {
+		$location.path('/')
 	};
 });

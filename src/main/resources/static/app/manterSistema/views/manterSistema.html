@@ -1,33 +1,31 @@
-<div class="row-fluid" ng-app="app">
-	<div class="span9" ng-controller="ManterSistemaCtrl">
-		<form>
-			<div class="form-group">
-				<label for="descricao">Descricao</label> <input type="text"
-					class="form-control" id="descricao" maxlength="100"
-					required="required">
-			</div>
-			<div class="form-group">
-				<label for="sigla">Sigla</label> <input type="text"
-					class="form-control" id="sigla" maxlength="10" required="required">
-			</div>
-			<div class="form-group">
-				<label for="emailAtendimentoSistema">E-mail de atendimento
-					do sistema</label> <input type="email" class="form-control"
-					id="emailAtendimentoSistema" maxlength="100">
-			</div>
-			<div class="form-group">
-				<label for="url">URL</label> <input type="text" class="form-control"
-					id="url" maxlength="50">
-			</div>
-			<button class="btn btn-default" type="button" ng-click="voltar()">
-				Voltar <span class="glyphicon glyphicon-arrow-left"></span>
-			</button>
-			<button class="btn btn-default" type="button" ng-click="salvar()">
-				Salvar<span class="glyphicon glyphicon-floppy-save"></span>
-			</button>
-		</form>
+
+<form ng-submit="salvar()">
+	<div class="form-group">
+		<label for="descricao">Descricao</label> <input type="text"
+			class="form-control" ng-model="descricao" maxlength="100"
+			required="required">
 	</div>
-</div>
+	<div class="form-group">
+		<label for="sigla">Sigla</label> <input type="text"
+			class="form-control" ng-model="sigla" maxlength="10"
+			required="required">
+	</div>
+	<div class="form-group">
+		<label for="emailAtendimentoSistema">E-mail de atendimento do
+			sistema</label> <input type="email" class="form-control"
+			ng-model="emailAtendimentoSistema" maxlength="100">
+	</div>
+	<div class="form-group">
+		<label for="url">URL</label> <input type="text" class="form-control"
+			ng-model="url" maxlength="50">
+	</div>
+	<button class="btn btn-default" type="button" ng-click="voltar()">
+		Voltar <span class="glyphicon glyphicon-arrow-left"></span>
+	</button>
+	<button class="btn btn-default" type="submit">
+		Salvar<span class="glyphicon glyphicon-floppy-save"></span>
+	</button>
+</form>
 
 
 
