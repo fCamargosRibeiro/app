@@ -1,0 +1,31 @@
+<div ng-controller="manterSistemaController" id="popupContainer">
+	<h1>Manter Sistema</h1>
+	<form ng-submit="cadastrar()">
+		<div class="col">
+			<label for="descricao">Descricao</label> <input type="text"
+				class="form-control" ng-model="descricao" maxlength="100"
+				required="required">
+		</div>
+		<div class="col">
+			<label for="sigla">Sigla</label> <input type="text"
+				class="form-control" ng-model="sigla" maxlength="10"
+				required="required">
+		</div>
+		<div class="col">
+			<label for="emailAtendimentoSistema">E-mail de atendimento do
+				sistema</label> <input type="email" class="form-control"
+				ng-model="emailAtendimentoSistema"
+				pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2}" maxlength="100">
+		</div>
+		<div class="col">
+			<label for="url">URL</label> <input type="text" class="form-control"
+				ng-model="url" maxlength="50">
+		</div>
+		<br>
+		<div class="btn-group" role="group" aria-label="Basic example"
+			style="float: right;">
+			<button type="button" class="btn btn-secondary" ng-click="voltar()">Voltar</button>
+			<button type="submit" class="btn btn-secondary">Salvar</button>
+		</div>
+	</form>
+</div>

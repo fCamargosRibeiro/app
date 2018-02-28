@@ -1,0 +1,59 @@
+<div ng-controller="sistemaController">
+	<h1>Pesquisar Sistema</h1>
+	<form ng-submit="pesquisar()">
+		<div>
+			<div class="col">
+				<label for="descricao">Descricao</label> <input type="text"
+					class="form-control" ng-model="descricao" maxlength="100">
+			</div>
+			<div class="col">
+				<label for="sigla">Sigla</label> <input type="text"
+					class="form-control" ng-model="sigla" maxlength="10"/>
+			</div>
+			<div class="col">
+				<label for="emailAtendimentoSistema">E-mail de atendimento
+					do sistema</label> <input type="text" class="form-control"
+					ng-model="emailAtendimentoSistema"
+					pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2}" maxlength="100"/>
+			</div>
+			<br>
+			<div class="btn-group" role="group" aria-label="Basic example"
+				style="float: right;">
+				<button type="submit" class="btn btn-secondary">Pesquisar</button>
+				<button type="button" class="btn btn-secondary" ng-click="limpar()">Limpar</button>
+				<button type="button" class="btn btn-secondary"
+					ng-click="cadastrar()">Novo Sistema</button>
+			</div>
+		</div>
+	</form>
+	<hr />
+	<div class="alert alert-info" role="alert"
+		ng-hide="msgErro.length == 0">{{msgErro}}</div>
+	<br><br>
+	<table id="tableSistema" class="table" ng-hide="sistemas.length == 0">
+		<thead>
+			<tr>
+				<th scope="col">#</th>
+				<th scope="col">Descricao</th>
+				<th scope="col">Sigla</th>
+				<th scope="col">Email Atendimento Sistema</th>
+				<th scope="col">Url</th>
+				<th scope="col">Status</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr dir-paginate="sistema in sistemas | itemsPerPage: 10">
+				<th scope="row">1</th>
+				<td>{{sistema.descricao}}</td>
+				<td>{{sistema.sigla}}</td>
+				<td>{{sistema.emailAtendimentoSistema}}</td>
+				<td>{{sistema.url}}</td>
+				<td>{{sistema.controleSistema.enumStatus}}</td>
+			</tr>
+		</tbody>
+	</table>
+	<div style="float: right;">
+		<dir-pagination-controls max-size="10" direction-links="true"
+			boundary-links="true"> </dir-pagination-controls>
+	</div>
+</div>
